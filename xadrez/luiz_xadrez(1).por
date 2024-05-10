@@ -7,9 +7,8 @@ programa
  	inteiro tabuleiro = g.carregar_imagem("xadrez.jpg")
      inteiro tabuleiro_redimensionar=g.redimensionar_imagem(tabuleiro,800,600,verdadeiro)
 	logico start = verdadeiro
-	logico EXIT =  verdadeiro
-	inteiro peao[8]
-	funcao inicio()
+	logico  Exit = verdadeiro
+funcao inicio()
 	{
           criar_janela()
           enquanto(verdadeiro){
@@ -17,6 +16,7 @@ programa
 	       	g.limpar()
 	       	desenhar_telal()
 	           botao_inicio()
+	           botao_saida()
 	           desenhar_pecas_Pretas()
 	          
          	     g.renderizar()
@@ -41,14 +41,28 @@ funcao botao_inicio(){
 		 	se(m.posicao_x() >= 350 e m.posicao_x() <= 400){
 		 		se(m.posicao_y() >= 300 e m.posicao_y() <=325){
 		 		  start = falso
-		 		  
+		 		  Exit = falso
 		 		  
 		 		}
 		 	}
 		 }      
 }
 		
-   
+   funcao botao_saida(){
+		se(Exit){
+		   g.definir_tamanho_texto(29.0)
+		   g.desenhar_texto(350,300, "Exit")
+		}
+		 se(m.algum_botao_pressionado()){
+		 	se(m.posicao_x() >= 350 e m.posicao_x() <= 400){
+		 		se(m.posicao_y() >= 300 e m.posicao_y() <=325){
+		 		 Exit = falso
+		 		  g.fechar_janela()
+		 		  
+		 		}
+		 	}
+		 }      
+}
      
 	funcao desenhar_pecas_Pretas(){
 		g.definir_cor(g.COR_PRETO)
@@ -64,7 +78,7 @@ funcao botao_inicio(){
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 1250; 
+ * @POSICAO-CURSOR = 1296; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
