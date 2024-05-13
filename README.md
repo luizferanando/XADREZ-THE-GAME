@@ -1,4 +1,6 @@
 XADREZ-THE-GAME
+
+
 descrever do sistema:
 
 Objetivo:Faz com que os jogadores desenvolvam o raciocínio lógico,as suas estratégia para dá o xeque-mateche no rei e ganha o jogo e também eles vão ter o direito de escolhe o tabuleiro que eles preferem.
