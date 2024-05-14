@@ -9,7 +9,7 @@ programa
  	inteiro pecaBranca[16][16]
  	inteiro tabuleiro_redimensionar=g.redimensionar_imagem(tabuleiro,800,600,verdadeiro)
 	logico start = verdadeiro
-	
+	logico EXIT= verdadeiro
 	funcao inicio()
 	{
           criar_janela()
@@ -18,7 +18,8 @@ programa
 	       	g.definir_cor(g.COR_PRETO)
 	       	g.limpar()
 	       	desenhaTodosElementos()
-	          clicke_no_botao()
+	          Inicia()
+	         saida()
 	         movimentos_das_peca()
 	         g.renderizar()
 	  }
@@ -154,16 +155,33 @@ programa
 	     g.desenhar_imagem(pecaBranca[i][1], pecaBranca[i][2], pecaBranca[i][0])
 	       }
 	   }
-	   funcao clicke_no_botao(){
-		se(start){
-		   g.definir_tamanho_texto(29.0)
-		   g.desenhar_texto(350,300, "start")
+	   //MENU DO JOGO
+	  funcao Inicia(){
+	 se(start){
+		 g.definir_tamanho_texto(29.0)
+    g.desenhar_texto(350,300, "start")
 		}
 		 se(m.algum_botao_pressionado()){
 		 	se(m.posicao_x() >= 350 e m.posicao_x() <= 400){
 		 		se(m.posicao_y() >= 300 e m.posicao_y() <=325){
 		 		  start = falso
+		 		  EXIT = falso
 		 		}
+		 	}
+		 } 
+	  }
+	   funcao saida(){
+       se(EXIT){
+		   g.definir_tamanho_texto(29.0)
+		   g.desenhar_texto(350,350, "EXIT")
+		}
+		 se(m.algum_botao_pressionado()){
+		 	se(m.posicao_x() >= 350 e m.posicao_x() <= 450){
+		 		se(m.posicao_y() >= 350 e m.posicao_y() <=375){
+		 		  EXIT = falso
+		 	      g.fechar_janela()
+		 	}
+		 		
 		 	}
 		 } 
 	  }
@@ -183,9 +201,9 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 589; 
+ * @POSICAO-CURSOR = 5677; 
  * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = {pecaPreta, 8, 10, 9};
+ * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
  * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
  */
