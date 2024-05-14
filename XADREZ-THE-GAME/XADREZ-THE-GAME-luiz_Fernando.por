@@ -1,11 +1,12 @@
 programa
-{     // Xadrez cust
+{     // XADREZ-THE-GAME
 	inclua biblioteca Graficos --> g
 	inclua biblioteca Util --> u
 	inclua biblioteca Mouse --> m
 	
  	inteiro tabuleiro = g.carregar_imagem("xadrez.jpg")
  	inteiro pecaPreta[16][16]
+ 	inteiro pecaBranca[16][16]
  	inteiro tabuleiro_redimensionar=g.redimensionar_imagem(tabuleiro,800,600,verdadeiro)
 	logico start = verdadeiro
 	
@@ -18,12 +19,14 @@ programa
 	       	g.limpar()
 	       	desenhaTodosElementos()
 	          clicke_no_botao()
+	         movimentos_das_peca()
 	         g.renderizar()
 	  }
 	}
 
 
 	funcao carregarPecas(){
+		//peças pretas
 	   	pecaPreta[0][0] = g.carregar_imagem("torre_preta.png")
 	   	pecaPreta[0][1] = 147
 	   	pecaPreta[0][2] = 45
@@ -72,9 +75,55 @@ programa
           pecaPreta[15][0] = g.carregar_imagem("peao_preto.png")
 	   	pecaPreta[15][1] = 599
 	   	pecaPreta[15][2] = 110
-         
-         
-         
+          //peças brancas
+          pecaBranca[0][0] = g.carregar_imagem("torre_Branca.png")
+	   	pecaBranca[0][1] = 147
+	   	pecaBranca[0][2] = 496
+	   	pecaBranca[1][0] = g.carregar_imagem("bispo_Branco.png")
+	     pecaBranca[1][1] = 210
+	   	pecaBranca[1][2] = 496
+          pecaBranca[2][0] = g.carregar_imagem("cavalo_Branco.png")
+	   	pecaBranca[2][1] = 275
+	   	pecaBranca[2][2] = 496
+	   	pecaBranca[3][0] = g.carregar_imagem("rei_Branco.png")
+	   	pecaBranca[3][1] = 339
+	   	pecaBranca[3][2] = 496
+        	pecaBranca[4][0] = g.carregar_imagem("rainha_Branca.png")
+	   	pecaBranca[4][1] = 405
+	   	pecaBranca[4][2] = 496
+          pecaBranca[5][0] = g.carregar_imagem("cavalo_Branco.png")
+	   	pecaBranca[5][1] = 469
+	   	pecaBranca[5][2] = 496
+	   	pecaBranca[6][0] = g.carregar_imagem("bispo_Branco.png")
+	   	pecaBranca[6][1] = 534
+	   	pecaBranca[6][2] = 496
+          pecaBranca[7][0] = g.carregar_imagem("torre_Branca.png")
+	   	pecaBranca[7][1] = 599
+	   	pecaBranca[7][2] = 496
+          pecaBranca[8][0] = g.carregar_imagem("peao_Branco.png")
+	   	pecaBranca[8][1] = 147
+	   	pecaBranca[8][2] = 433
+	     pecaBranca[9][0] = g.carregar_imagem("peao_Branco.png")
+	   	pecaBranca[9][1] = 210
+	   	pecaBranca[9][2] = 433
+	     pecaBranca[10][0] = g.carregar_imagem("peao_Branco.png")
+	   	pecaBranca[10][1] = 275
+	   	pecaBranca[10][2] = 433
+          pecaBranca[11][0] = g.carregar_imagem("peao_Branco.png")
+	   	pecaBranca[11][1] = 339
+	   	pecaBranca[11][2] = 433
+          pecaBranca[12][0] = g.carregar_imagem("peao_Branco.png")
+	   	pecaBranca[12][1] = 405
+	   	pecaBranca[12][2] = 433
+          pecaBranca[13][0] = g.carregar_imagem("peao_Branco.png")
+	   	pecaBranca[13][1] = 469
+	   	pecaBranca[13][2] = 433
+          pecaBranca[14][0] = g.carregar_imagem("peao_Branco.png")
+	   	pecaBranca[14][1] = 534
+	   	pecaBranca[14][2] = 433
+          pecaBranca[15][0] = g.carregar_imagem("peao_Branco.png")
+	   	pecaBranca[15][1] = 599
+	   	pecaBranca[15][2] = 433
 	 
          
          
@@ -86,7 +135,9 @@ programa
 	   	para(inteiro i = 0; i < 16; i++){
 	   		pecaPreta[i][0] = g.redimensionar_imagem(pecaPreta[i][0], 55, 55, verdadeiro)
 	   	}
-	   		
+	   		para(inteiro i = 0; i <16; i++){
+	   		pecaBranca[i][0] = g.redimensionar_imagem(pecaBranca[i][0],55, 55, verdadeiro)
+	   	}
  	}
 	
 	 funcao criar_janela(){
@@ -99,7 +150,9 @@ programa
 	    para(inteiro i = 0; i < 16; i++){
 	     g.desenhar_imagem(pecaPreta[i][1], pecaPreta[i][2], pecaPreta[i][0])
 	    }
-	     
+	       para(inteiro i = 0; i < 16; i++){
+	     g.desenhar_imagem(pecaBranca[i][1], pecaBranca[i][2], pecaBranca[i][0])
+	       }
 	   }
 	   funcao clicke_no_botao(){
 		se(start){
@@ -114,7 +167,12 @@ programa
 		 	}
 		 } 
 	  }
-  }
+	  //movimentos das peças
+	  funcao movimentos_das_peca(){
+	  	
+	  }
+  }   
+  
 	
 	
 	
@@ -125,7 +183,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 207; 
+ * @POSICAO-CURSOR = 589; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = {pecaPreta, 8, 10, 9};
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
