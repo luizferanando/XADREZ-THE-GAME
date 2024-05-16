@@ -25,8 +25,7 @@ programa
 	  }
 	}
 
-
-	funcao carregarPecas(){
+     funcao carregarPecas(){
 		//peças pretas
 	   	pecaPreta[0][0] = g.carregar_imagem("torre_preta.png")
 	   	pecaPreta[0][1] = 147
@@ -126,12 +125,6 @@ programa
 	   	pecaBranca[15][1] = 599
 	   	pecaBranca[15][2] = 433
 	 
-         
-         
-	 
-         
-         
-	 
 	 
 	   	para(inteiro i = 0; i < 16; i++){
 	   		pecaPreta[i][0] = g.redimensionar_imagem(pecaPreta[i][0], 55, 55, verdadeiro)
@@ -140,13 +133,35 @@ programa
 	   		pecaBranca[i][0] = g.redimensionar_imagem(pecaBranca[i][0],55, 55, verdadeiro)
 	   	}
  	}
+
+ 	//movimentos das peças
+	 funcao movimentos_das_peca(){
 	
-	 funcao criar_janela(){
+	 	se(m.algum_botao_pressionado()){
+	 		inteiro posMX = m.posicao_x()
+	 		inteiro posMY = m.posicao_y()
+	 		para(inteiro i = 0; i<16;i++){
+	 		  se(posMX >= pecaPreta[i][1]-10 e posMX <= pecaPreta[i][1]+10){
+	 		  	se(posMY >= pecaPreta[i][2]-10 e posMY <= pecaPreta[i][2]+10)
+	 		  		pecaPreta[i][1] = 200
+	   	              pecaPreta[i][2] = 200
+	 		  	}
+	 		}
+	 		
+	 	}
+	  	
+	   
+	  }
+
+	  
+
+    funcao criar_janela(){
 		 g.iniciar_modo_grafico(verdadeiro)
 		 g.definir_dimensoes_janela(800,600)
 		 g.definir_titulo_janela("XADREZ-THE-GAME")
 	}
-	funcao desenhaTodosElementos(){
+
+    funcao desenhaTodosElementos(){
 	     g.desenhar_imagem(0, 0, tabuleiro_redimensionar)
 	    para(inteiro i = 0; i < 16; i++){
 	     g.desenhar_imagem(pecaPreta[i][1], pecaPreta[i][2], pecaPreta[i][0])
@@ -156,7 +171,7 @@ programa
 	       }
 	   }
 	   //MENU DO JOGO
-	  funcao Inicia(){
+	 funcao Inicia(){
 	 se(start){
 		 g.definir_tamanho_texto(29.0)
     g.desenhar_texto(350,300, "start")
@@ -185,23 +200,14 @@ programa
 		 	}
 		 } 
 	  }
-	  //movimentos das peças
-	  funcao movimentos_das_peca(){
-	  	
-	  }
-  }   
-  
-	
-	
-	
-	
-          
+	  
+  }
 /* $$$ Portugol Studio $$$ 
  * 
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 5677; 
+ * @POSICAO-CURSOR = 6469; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
