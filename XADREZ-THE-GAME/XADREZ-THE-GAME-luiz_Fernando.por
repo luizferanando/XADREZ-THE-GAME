@@ -141,17 +141,28 @@ programa
 	 		
 	 		inteiro posMX = m.posicao_x()
 	 		inteiro posMY = m.posicao_y()
-	 		para(inteiro i = 0; i<1;i++){
-	 		se(posMX >= pecaPreta[i][1]-15 e posMX <= pecaPreta[i][1]+5){
-	 		  	se(posMY >= pecaPreta[i][2]-15 e posMY <= pecaPreta[i][2]+5)
-	 		  	    pecaPreta[i][1] = 235
-	   	              pecaPreta[i][2] = 245
+	 		
+	 		para(inteiro i = 0; i<8;i++){
+	 		se(posMX >= pecaPreta[i][1]-15 e posMX <= pecaPreta[i][1]+15){
+	 		  	se(posMY >= pecaPreta[i][2]-15 e posMY <= pecaPreta[i][2]+15)
+	 		  	    pecaPreta[8][1] = 235
+	   	              pecaPreta[8][2] = 245
 	   	            
 	 		  	}
 	 		
 	 		}  	
-	 		  }
-	 		}
+	 		 
+	 		para(inteiro i = 0; i<9;i++){
+	 		se(posMX >= pecaPreta[i][1]-15 e posMX <= pecaPreta[i][1]+15){
+	 		  	se(posMY >= pecaPreta[i][2]-15 e posMY <= pecaPreta[i][2]+15)
+	 		  	    pecaPreta[9][1] = 235
+	   	              pecaPreta[9][2] = 245
+	   	            
+	 		  	}
+	 		
+	 		}  	
+	 	}
+	 }
 funcao criar_janela(){
 		 g.iniciar_modo_grafico(verdadeiro)
 		 g.definir_dimensoes_janela(800,600)
@@ -204,7 +215,7 @@ funcao criar_janela(){
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 5207; 
+ * @POSICAO-CURSOR = 5536; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
