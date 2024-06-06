@@ -76,52 +76,52 @@ programa
 	   	pecaPreta[15][1] = 599
 	   	pecaPreta[15][2] = 110
           //peças brancas
-          pecaBranca[0][0] = g.carregar_imagem("torre_Branca.png")
+          pecaBranca[0][0] = g.carregar_imagem("torre_branca.png")
 	   	pecaBranca[0][1] = 147
 	   	pecaBranca[0][2] = 496
-	   	pecaBranca[1][0] = g.carregar_imagem("bispo_Branco.png")
+	   	pecaBranca[1][0] = g.carregar_imagem("bispo_branco.png")
 	     pecaBranca[1][1] = 210
 	   	pecaBranca[1][2] = 496
-          pecaBranca[2][0] = g.carregar_imagem("cavalo_Branco.png")
+          pecaBranca[2][0] = g.carregar_imagem("cavalo_branco.png")
 	   	pecaBranca[2][1] = 275
 	   	pecaBranca[2][2] = 496
-	   	pecaBranca[3][0] = g.carregar_imagem("rei_Branco.png")
+	   	pecaBranca[3][0] = g.carregar_imagem("rei_branco.png")
 	   	pecaBranca[3][1] = 339
 	   	pecaBranca[3][2] = 496
-        	pecaBranca[4][0] = g.carregar_imagem("rainha_Branca.png")
+        	pecaBranca[4][0] = g.carregar_imagem("rainha_branca.png")
 	   	pecaBranca[4][1] = 405
 	   	pecaBranca[4][2] = 496
-          pecaBranca[5][0] = g.carregar_imagem("cavalo_Branco.png")
+          pecaBranca[5][0] = g.carregar_imagem("cavalo_branco.png")
 	   	pecaBranca[5][1] = 469
 	   	pecaBranca[5][2] = 496
-	   	pecaBranca[6][0] = g.carregar_imagem("bispo_Branco.png")
+	   	pecaBranca[6][0] = g.carregar_imagem("bispo_branco.png")
 	   	pecaBranca[6][1] = 534
 	   	pecaBranca[6][2] = 496
-          pecaBranca[7][0] = g.carregar_imagem("torre_Branca.png")
+          pecaBranca[7][0] = g.carregar_imagem("torre_branca.png")
 	   	pecaBranca[7][1] = 599
 	   	pecaBranca[7][2] = 496
-          pecaBranca[8][0] = g.carregar_imagem("peao_Branco.png")
+          pecaBranca[8][0] = g.carregar_imagem("peao_branco.png")
 	   	pecaBranca[8][1] = 147
 	   	pecaBranca[8][2] = 433
-	     pecaBranca[9][0] = g.carregar_imagem("peao_Branco.png")
+	     pecaBranca[9][0] = g.carregar_imagem("peao_branco.png")
 	   	pecaBranca[9][1] = 210
 	   	pecaBranca[9][2] = 433
-	     pecaBranca[10][0] = g.carregar_imagem("peao_Branco.png")
+	     pecaBranca[10][0] = g.carregar_imagem("peao_branco.png")
 	   	pecaBranca[10][1] = 275
 	   	pecaBranca[10][2] = 433
-          pecaBranca[11][0] = g.carregar_imagem("peao_Branco.png")
+          pecaBranca[11][0] = g.carregar_imagem("peao_branco.png")
 	   	pecaBranca[11][1] = 339
 	   	pecaBranca[11][2] = 433
-          pecaBranca[12][0] = g.carregar_imagem("peao_Branco.png")
+          pecaBranca[12][0] = g.carregar_imagem("peao_branco.png")
 	   	pecaBranca[12][1] = 405
 	   	pecaBranca[12][2] = 433
-          pecaBranca[13][0] = g.carregar_imagem("peao_Branco.png")
+          pecaBranca[13][0] = g.carregar_imagem("peao_branco.png")
 	   	pecaBranca[13][1] = 469
 	   	pecaBranca[13][2] = 433
-          pecaBranca[14][0] = g.carregar_imagem("peao_Branco.png")
+          pecaBranca[14][0] = g.carregar_imagem("peao_branco.png")
 	   	pecaBranca[14][1] = 534
 	   	pecaBranca[14][2] = 433
-          pecaBranca[15][0] = g.carregar_imagem("peao_Branco.png")
+          pecaBranca[15][0] = g.carregar_imagem("peao_branco.png")
 	   	pecaBranca[15][1] = 599
 	   	pecaBranca[15][2] = 433
 	 
@@ -142,6 +142,16 @@ programa
 	 		inteiro posMX = m.posicao_x()
 	 		inteiro posMY = m.posicao_y()
 	 		
+	 		para(inteiro i = 0; i<8;i++){
+	 		se(posMX >= pecaPreta[i][1]-15 e posMX <= pecaPreta[i][1]+15){
+	 		  	se(posMY >= pecaPreta[i][2]-15 e posMY <= pecaPreta[i][2]+15)
+	 		  	    pecaPreta[8][1] = 235
+	   	              pecaPreta[8][2] = 245
+	   	            
+	 		  	}
+	 		
+	 		}  	
+	 
 	 		para(inteiro i = 0; i<9;i++){
 	 		se(posMX >= pecaPreta[i][1]-15 e posMX <= pecaPreta[i][1]+15){
 	 		  	se(posMY >= pecaPreta[i][2]-15 e posMY <= pecaPreta[i][2]+15)
@@ -151,7 +161,6 @@ programa
 	 		  	}
 	 		
 	 		}  	
-	 
 	 	}
 	 }
 funcao criar_janela(){
@@ -206,7 +215,7 @@ funcao criar_janela(){
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 5299; 
+ * @POSICAO-CURSOR = 5438; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
