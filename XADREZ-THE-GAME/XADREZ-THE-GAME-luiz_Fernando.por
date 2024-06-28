@@ -3,15 +3,22 @@ programa
 	inclua biblioteca Graficos --> g
 	inclua biblioteca Util --> u
 	inclua biblioteca Mouse --> m
+	inclua biblioteca Teclado --> t
 	
  	inteiro tabuleiro = g.carregar_imagem("xadrez.jpg")
  	inteiro pecaPreta[16][16]
  	inteiro pecaBranca[16][16]
+ 	inteiro pegaPeca[2]
  	inteiro tabuleiro_redimensionar=g.redimensionar_imagem(tabuleiro,800,600,verdadeiro)
 	logico start = verdadeiro
 	logico EXIT= verdadeiro
+	inteiro movePecaX = 147, movePecaY=45
+	logico movimento = falso
+	inteiro cor = g.COR_VERDE
 	funcao inicio()
 	{
+		pegaPeca[0] = movePecaX
+		pegaPeca[1] = movePecaY
           criar_janela()
           carregarPecas()
           enquanto(verdadeiro){
@@ -21,17 +28,49 @@ programa
 	          Inicia()
 	         saida()
 	         movimentos_das_peca()
+	         moverPeca()
+	         movimentaMovePeca()
 	         g.renderizar()
+	         
 	  }
 	}
+	
+	funcao moverPeca(){
+	     g.definir_cor(cor)
+		g.desenhar_retangulo(movePecaX, movePecaY, 60, 60, verdadeiro, falso)
+	}
+	funcao movimentaMovePeca(){
+		
+		se(t.tecla_pressionada(t.TECLA_SETA_ACIMA)){
+			movePecaY -= 64
+			pegaPeca[1] = movePecaY
+		}
+			
+		se(t.tecla_pressionada(t.TECLA_SETA_DIREITA)){
+			movePecaX += 64
+			pegaPeca[0] = movePecaX
+		}
+			
+		se(t.tecla_pressionada(t.TECLA_SETA_ABAIXO)){
+			movePecaY += 64
+			pegaPeca[1] = movePecaY
+		}
+			
+		se(t.tecla_pressionada(t.TECLA_SETA_ESQUERDA)){
+			movePecaX -= 64
+			pegaPeca[0] = movePecaX
+		}	
+          u.aguarde(150)
+		
+	}
 
-     funcao carregarPecas(){
+     funcao carregarPecas() {
 		//peças pretas
 	   	pecaPreta[0][0] = g.carregar_imagem("torre_preta.png")
 	   	pecaPreta[0][1] = 147
 	   	pecaPreta[0][2] = 45
 	   	pecaPreta[1][0] = g.carregar_imagem("bispo_preto.png")
-	   	pecaPreta[1][1] = 210
+	   	pecaPreta[1][1] = 211
 	   	pecaPreta[1][2] = 45
 	     pecaPreta[2][0] = g.carregar_imagem("cavalo_preto.png")
 	   	pecaPreta[2][1] = 275
@@ -125,7 +164,6 @@ programa
 	   	pecaBranca[15][1] = 599
 	   	pecaBranca[15][2] = 433
 	 
-	 
 	   	para(inteiro i = 0; i < 16; i++){
 	   		pecaPreta[i][0] = g.redimensionar_imagem(pecaPreta[i][0], 55, 55, verdadeiro)
 	   	}
@@ -136,40 +174,23 @@ programa
 
  	//movimentos das peças
 	 funcao movimentos_das_peca(){
-	
-	 	se(m.algum_botao_pressionado()){
-	 		
-	 		inteiro posMX = m.posicao_x()
-	 		inteiro posMY = m.posicao_y()
-	 		
-	 		para(inteiro i = 0; i<8;i++){
-	 		se(posMX >= pecaPreta[i][1]-15 e posMX <= pecaPreta[i][1]+15){
-	 		  	se(posMY >= pecaPreta[i][2]-15 e posMY <= pecaPreta[i][2]+15)
-	 		  	    pecaPreta[8][1] = 235
-	   	              pecaPreta[8][2] = 245
-	   	            
-	 		  	}
-	 		
-	 		}  	
+		
+	 	se(t.tecla_pressionada(t.TECLA_ENTER)){
+	 		para(inteiro i = 0; i <=15; i++){
+	 			se(pecaPreta[i][1]== pegaPeca[0] e pecaPreta[i][2] == pegaPeca[1]){
+	 					cor = g.COR_AZUL
+	 			}
+	 		  }
+	 		}  	       
+	     }	
 	 
-	 		para(inteiro i = 0; i<9;i++){
-	 		se(posMX >= pecaPreta[i][1]-15 e posMX <= pecaPreta[i][1]+15){
-	 		  	se(posMY >= pecaPreta[i][2]-15 e posMY <= pecaPreta[i][2]+15)
-	 		  	    pecaPreta[9][1] = 235
-	   	              pecaPreta[9][2] = 245
-	   	            
-	 		  	}
-	 		
-	 		}  	
-	 	}
-	 }
-funcao criar_janela(){
+      funcao criar_janela(){
 		 g.iniciar_modo_grafico(verdadeiro)
 		 g.definir_dimensoes_janela(800,600)
 		 g.definir_titulo_janela("XADREZ-THE-GAME")
-	}
+	 }
 
-    funcao desenhaTodosElementos(){
+      funcao desenhaTodosElementos(){
 	     g.desenhar_imagem(0, 0, tabuleiro_redimensionar)
 	    para(inteiro i = 0; i < 16; i++){
 	     g.desenhar_imagem(pecaPreta[i][1], pecaPreta[i][2], pecaPreta[i][0])
@@ -193,7 +214,8 @@ funcao criar_janela(){
 		 	}
 		 } 
 	  }
-	   funcao saida(){
+	 
+	 funcao saida(){
        se(EXIT){
 		   g.definir_tamanho_texto(29.0)
 		   g.desenhar_texto(350,350, "EXIT")
@@ -215,9 +237,10 @@ funcao criar_janela(){
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 5438; 
+ * @POSICAO-CURSOR = 5929; 
+ * @DOBRAMENTO-CODIGO = [66, 186, 192, 202, 217];
  * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = ;
+ * @SIMBOLOS-INSPECIONADOS = {pegaPeca, 11, 10, 8};
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
  * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
  */
